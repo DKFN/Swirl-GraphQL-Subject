@@ -4,6 +4,8 @@
 
 ![alt text](http://cdn.deadlykungfu.ninja/ref.png)
 
+Latest online version : http://cdn.deadlykungfu.ninja/demo/jquery/
+
 **Early version note:**
 
 ``
