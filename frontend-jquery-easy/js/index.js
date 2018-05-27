@@ -7,6 +7,19 @@ const renderHomepage = (data) => {
 const renderTopPageMovie = (dataForMovie) => {
     console.log(dataForMovie);
 
+    // Animations
+    $(".flagship-movie-content").css("opacity", 0);
+    $(".flagship-movie-poster").css("opacity", 0);
+
+    $(".flagship-movie-content").delay(1500).animate({
+        opacity: 1,
+    }, 1000);
+
+    $(".flagship-movie-poster").delay(200).animate({
+        opacity: 1,
+    }, 1000);
+
+    // Now I set the content I want based on data I received
     $(".flagship-movie-title").text(dataForMovie["title"]);
     $(".flagship-movie-director").text(dataForMovie["director"]);
     $(".flagship-movie-synopsis").text(dataForMovie["synopsis"]);
