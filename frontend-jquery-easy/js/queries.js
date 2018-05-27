@@ -1,6 +1,6 @@
 var homepageQuery = `
 query {
-	strates (names: ["soon", "anime"]) {
+	strates (names: ["soon", "anime", "drames", "trillers"]) {
 		name
 		title
 		movies {
