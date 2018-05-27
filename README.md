@@ -40,6 +40,8 @@ The goal of this project is to show you a moden way to access data and how to us
 The subject schema is built for being simple to use and fun to play with, as such many GraphQL
 specifications have not been implemented
 
+This time the server is NOT bundled with the frontend. You can clone the backend repo and run it
+if you wish but the backend is already hosted on a VM.
 
 (Pending version 1.0)
 It is provided with a demo project built with JQuery as it is yet the most used library yet,
@@ -52,8 +54,8 @@ repo here containing a basic ReactJS install and a tiny custom wrapper around Fe
 please note that this part however will not be covered in the docs.
 
 Of course you are free to use any frontend stack you wish, don't hesitate to be creative !  All
-you need to query GraphQL is a way to send HTTP request, the best way is the FetchAPI [link] but
-you can use XMLHttpRequests or the JQuery [link] wrapper around it. Using GraphQL clients is optionnal
+you need to query GraphQL is a way to send HTTP request, the best way is the FetchAPI https://developer.mozilla.org/fr/docs/Web/API/Fetch_API but
+you can use XMLHttpRequests or the JQuery  http://api.jquery.com/jquery.ajax/ wrapper around it. Using GraphQL clients is optionnal
 and will be usefull if you want enhanced functionnalities.
 
 For any questions I am available on Swirl's Slack, I can also answer questions via Discord if you
@@ -65,13 +67,10 @@ Please see DOC.md if you need an introduction to GraphQL
 ## Meet the mini-Netflix GraphQL backend
 
 *This part will cover the essentials you need to know to interract with the server,
-as such I won't enter technical details of its implementation here but feel free to check the repository [link]*
+as such I won't enter technical details of its implementation here but feel free to check the repository https://github.com/DKFN/Swirl-graphql-back*
 
 #### How to query the server ?
 
-The server base URL is : *http://45.76.45.208:9000/*
-
-You will need to do POST queries to this route : *http://45.76.45.208:9000/graphql*
 
 *Before writing code I suggest you to try to query the server with Postman (or curl, but even if I love CLI,
 writing graphQL queries seems painfull there). There are few words about using it later in this document if you need/*
