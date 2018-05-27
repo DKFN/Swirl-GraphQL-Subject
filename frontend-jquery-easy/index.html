@@ -2,9 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>My NETFLIX</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+    <link href="app.css" rel="stylesheet"/>
+
 </head>
-<body>
-$END$
+<body cz-shortcut-listen="true">
+    <div class="wrapper">
+
+        <!-- Navigation Bar !-->
+        <nav class="navbar navbar-default navbar-inverse bg-inverse">
+            <div class="container-fluid">
+                <div class="navbar navbar-header">
+                    MyNetflix
+                </div>
+                <ul class="nav navbar-env">
+                    <li>Home</li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Flagship movie !-->
+        <div class="panel panel-default flagship-movie-container">
+            <div class="panel-body" id="flagship-movie-content">
+                <div class="col-md-4">
+                    <div class="flagship-movie-poster">
+                    </div>
+                </div>
+                <div class="flagship-movie-content col-md-8">
+                    <div class="flagship-movie-infos">
+                        <span class="flagship-movie-title"></span> <br />
+                        <span class="flagship-movie-director"></span>
+                        <span class="flagship-movie-releaseDate"></span> <br /><br />
+                    </div>
+                    <div class="flagship-movie-synopsis">
+                    </div>
+                    <div class="flagship-movie-youtube" style="text-align: center; position: relative;">
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+    <script src="js/client.js" type="text/javascript"></script>
+    <script src="js/index.js" type="text/javascript" ></script>
+    <script src="js/queries.js" type="text/javascript" ></script>
+    <script src="templates/youtube.js" type="text/javascript"></script>
 </body>
 </html>
