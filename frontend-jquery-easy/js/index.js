@@ -32,6 +32,18 @@ const renderTopPageMovie = (dataForMovie) => {
 };
 
 const renderAStrate = (dataForMyStrate, strateKey) => {
+
+    $(".home-strates-container").css("opacity", 0);
+    $(".strate-poster").css("opacity", 0);
+
+    $(".home-strates-container").delay(1500).animate({
+        opacity: 1,
+    }, 800);
+
+    $(".strate-poster").delay(2200).animate({
+        opacity: 1,
+    }, 500);
+
     $(".home-strates-container")
         .append(
             buildStrateTemplate(

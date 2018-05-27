@@ -13,7 +13,7 @@ const buildStrateMovie = (movieData, strateKey) => `
         <img width="256px" src="${ movieData["poster"] }"/>
     </div>
     <div class="strate-movie-title">
-        ${ movieData["title"].length > 28 ? movieData["title"].substring(0, 24) + "..." : movieData["title"] }
+        ${ movieData["title"].length > 20 ? movieData["title"].substring(0, 19) + "..." : movieData["title"] }
     </div>
 </div>
 `;

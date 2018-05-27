@@ -92,3 +92,11 @@ html {
     color: white;
     background-color: black;
 }
+
+.netflix-footer {
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    padding: 10px;
+    border-top: 2px solid white;
+}
