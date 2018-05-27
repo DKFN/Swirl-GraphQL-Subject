@@ -1,6 +1,6 @@
 var homepageQuery = `
 query {
-	strates (names: ["soon", "anime", "drames", "trillers"]) {
+	strates (names: ["soon", "anime", "drames", "thrillers", "noirblanc", "sciencefiction", "horreur", "fantastique"]) {
 		name
 		title
 		movies {
