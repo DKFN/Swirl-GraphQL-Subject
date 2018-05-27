@@ -1,6 +1,7 @@
 const renderHomepage = (data) => {
     console.log(data);
-    renderTopPageMovie(data["data"]["movie"])
+    renderTopPageMovie(data["data"]["movie"]);
+    renderAllStrate(data["data"]["strates"]);
 };
 
 // Here I just persist all my data to the HTML
@@ -30,8 +31,15 @@ const renderTopPageMovie = (dataForMovie) => {
     $(".flagship-movie-youtube").append(makeYoutubeLink(dataForMovie["trailerYoutubeId"]));
 };
 
-const renderAStrate = (dataForMyStrate) => {
-
+const renderAStrate = (dataForMyStrate, strateKey) => {
+    $(".home-strates-container")
+        .append(
+            buildStrateTemplate(
+                strateKey,
+                dataForMyStrate["title"],
+                dataForMyStrate["poster"],
+                dataForMyStrate["movies"]
+        ));
 };
 
 const renderAllStrate = (dataForAllStrates) => {
@@ -44,7 +52,7 @@ const renderAllStrate = (dataForAllStrates) => {
      *
      * But let's enjoy that we are not in C and we have nicer concepts :D
      */
-    dataForAllStrates.map(strateData => renderAStrate(strateData))
+    dataForAllStrates.map((strateData, key) => renderAStrate(strateData, key))
 };
 
 // As you can see there I create a getHomepage function, taking the homepageQuery and when I have a reponse from the back
