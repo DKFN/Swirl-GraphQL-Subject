@@ -2,6 +2,8 @@
 
 *version 0.8*
 
+![alt text](http://cdn.deadlykungfu.ninja/ref.png)
+
 **Early version note:**
 
 ``
