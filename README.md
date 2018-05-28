@@ -25,8 +25,8 @@ You can start the project now, the subject will not longer have braking changes 
         - Using dev tools and postman to debug
         - TODO Bonus : Build your own strates !
         - TODO Bonus : Implement search !
-- JQuery Reference: Architecture and Code exmplanations
-- ReactJS Reference: Architecture and Code exmplanations
+- JQuery Reference: Architecture and Code explanations
+- ReactJS Reference: Architecture and Code explanations
 
 ## Terminologies
  
@@ -36,28 +36,28 @@ You can start the project now, the subject will not longer have braking changes 
    and this will soon be in your client too !
 ## Preface
 
-The goal of this project is to show you a moden way to access data and how to use it frontend.
+The goal of this project is to show you a modern way to access data and how to use it frontend.
 
 The subject schema is built for being simple to use and fun to play with, as such many GraphQL
-specifications have not been implemented
+specifications have not been implemented.
 
 This time the server is NOT bundled with the frontend. You can clone the backend repo and run it
 if you wish but the backend is already hosted on a VM.
 
 (Pending version 1.0)
-It is provided with a demo project built with JQuery as it is yet the most used library yet,
+It is provided with a demo project built with JQuery as it is still the most used library,
 even if it is old and can be painfull to use sometimes, the plethora of tutorials and the fairly
 easy to use API will be an easy entry path for begineers.
 
 (Pending version 1.0)
-The most advanced of you will be disapionted of this choice ... This is why I also provide a little seed 
+The most advanced of you will be disappointed with this choice ... This is why I also provide a little seed 
 repo here containing a basic ReactJS install and a tiny custom wrapper around FetchAPI to get you started,
 please note that this part however will not be covered in the docs.
 
 Of course you are free to use any frontend stack you wish, don't hesitate to be creative !  All
 you need to query GraphQL is a way to send HTTP request, the best way is the FetchAPI https://developer.mozilla.org/fr/docs/Web/API/Fetch_API but
-you can use XMLHttpRequests or the JQuery  http://api.jquery.com/jquery.ajax/ wrapper around it. Using GraphQL clients is optionnal
-and will be usefull if you want enhanced functionnalities.
+you can use XMLHttpRequests or the JQuery  http://api.jquery.com/jquery.ajax/ wrapper around it. Using GraphQL clients is optional
+and will be useful if you want enhanced functionnalities.
 
 For any questions I am available on Swirl's Slack, I can also answer questions via Discord if you
 wish to have more support on the subject, remember, we wish you to have fun, not to suffer !
@@ -67,8 +67,8 @@ Please see DOC.md if you need an introduction to GraphQL
 
 ## Meet the mini-Netflix GraphQL backend
 
-*This part will cover the essentials you need to know to interract with the server,
-as such I won't enter technical details of its implementation here but feel free to check the repository https://github.com/DKFN/Swirl-graphql-back*
+*This part will cover the essentials you need to know to interact with the server,
+as such I won't enter into technical details of its implementation here but feel free to check the repository https://github.com/DKFN/Swirl-graphql-back*
 
 #### How to query the server ?
 
@@ -83,7 +83,7 @@ The content of the query is defined by the schema, shortly explained you can que
  - Movie(s)
  - Strate(s) 
  
- First things first, we want an Homepage. I choosed to have a little homepage, lets assume I want to
+ First things first, we want a Homepage. I chose to have a little homepage, lets assume I want to
  display the films that will be out soon and some live action movies.
  
  For this I want two strates (lists), my strates will just contain the title and the image of the movie. I will also get the ID.
@@ -104,7 +104,7 @@ The content of the query is defined by the schema, shortly explained you can que
     }
 ```
 
-The server will reply my this body (for handling the body and displaying it on the frontend, see examples).
+The server will reply me this body (for handling the body and displaying it on the frontend, see examples).
 
 ```$xslt
 {
@@ -162,8 +162,8 @@ The server will reply my this body (for handling the body and displaying it on t
 }
 ```
  
-Alright its not bad ! I have the data I need for a very basic home but heee... It don't look very nice only two poor little lists losts
-inside a big application. So i want to put big lights on one movie inside my home, I pick Deadpool2
+Alright its not bad ! I have the data I need for a very basic home but heee... It doesn't look very nice only two poor little lists losts
+inside a big application. So I want to put big lights on one movie inside my home, I pick Deadpool2
 
 So I enhanced my query with a Movie field, with the hardcoded id of my favorite movie
 
@@ -260,7 +260,7 @@ Giving me more data to build a nice interface !
 }
 ```
 
-Ok but it still fills a bit empty so now I wan't the users to get more than stars or percentage for
+Ok but it still feels a bit empty so now I want the users to get more than stars or percentage for
 reviewing my awesome movie so I want to display some comments and put them in a nice slideshow effect ! : 
 
 ```$xslt
@@ -473,16 +473,16 @@ Giving me this body :
 }
 ```
 
-Of course, you can go way further than this and feel free to implement nice thing frontwise, one orther little thing to be noted about this
-API is that it was designed in the minset "If you can query one you can query many", as such each entry point has a plural variant (movie -> movies, strate -> strates)
+Of course, you can go way further than this and feel free to implement nice thing frontwise, one other little thing to be noted about this
+API is that it was designed with the minset "If you can query one you can query many", as such each entry point has a plural variant (movie -> movies, strate -> strates)
 taking arrays of ids/names and returning arrays of elements. IF needed I will provide more examples and or more endpoints depending on what you wish :) *
 
-You might have notice than even if we have greatly enhanced the quantity of data the response time have not grown, this
-is because the backend handles each fetching part in a thread so even with more data being displayed the response time will relatively the same.
+You might have noticed that even if we have greatly enhanced the quantity of data the response time has not grown, this
+is because the backend handles each fetching part in a thread so even with more data being displayed the response time will be relatively the same.
 
-This is anorther advantage of graphql, it allows the complexity and cost of fetching in multiple endpoints moved from 
+This is another advantage of graphql, it allows the complexity and cost of fetching in multiple endpoints moved from 
 the clients device to the backend architecture
-whom as a relatively stable performance and relief little devices of handling so much instructions, and having to handle multiple connections instead of one. (Besides the bonus of not loading huge JSON documents in RAM).
+which has a relatively stable performance and relieves little devices of handling so many instructions, and having to handle multiple connections instead of one. (Besides the bonus of not loading huge JSON documents in RAM).
 
 One query to catch'em all.
 
@@ -540,10 +540,10 @@ type Movie {
 
 ## JQuery Reference : Architecture and code explanations
 
-The frontend version aims to provide you basic functionnalites to get started quick and is a great option if you want
+The frontend version aims to provide you basic functionnalites to get started quickly and is a great option if you want
 to try the frontend part easily* before having dedicated subjects on frontend frameworks.
 
-To launch the client in your browser simply open index.html, it should work nice. If not, please send me a message.
+To launch the client in your browser simply open index.html, it should work fine. If not, please send me a message.
 
 **By easy I mean easier than other techs, of course you may run into hard problems, don't hesitate to post on the slack or join the Discord*
 
@@ -555,7 +555,7 @@ To launch the client in your browser simply open index.html, it should work nice
 *app.css*
 Contains the basic style of the application. Nothing very crazy here :)
 
-*index.html* Is the skeleton of the app, let me insist with the word of skeleton watch this code, it is resposible for
+*index.html* Is the skeleton of the app, let me insist with the word of skeleton watch this code, it is responsible for
 containing Deadpool 2 in the reference :
 
 ```html$
@@ -582,9 +582,9 @@ containing Deadpool 2 in the reference :
 ```
 
 As you can see it is an empty shell ! There is not a single text, only a lot of classnames with revelant names on what will be filled after load! You will see on the JS folder
-explanation part howit is filled with informations from the backend
+explanation part how it is filled with informations from the backend
 
-Anorther part to keep in memory for now is this simple empty div, we wil get back to it later:
+Another part to keep in mind for now is this simple empty div, we will get back to it later:
 
 ```$xslt
 <div class="home-strates-container">
@@ -594,7 +594,7 @@ Anorther part to keep in memory for now is this simple empty div, we wil get bac
 
 **Javascript directory**
 
-*client.js* is a wrapper I made to ease you the process of sending queries to the server, it takes you query as a parameter
+*client.js* is a wrapper I made to ease you the process of sending queries to the server, it takes your query as a parameter
 and will return you a function. You will see below how to use it
 
 ```$javascript
@@ -658,7 +658,7 @@ query {
 }`;
 ```
 
-And ... that's it. Backquotes are very powerfull in JS and I just wrap my query in an anonymous functions taking the id in parameter
+And ... that's it. Backquotes are very powerful in JS and I just wrap my query in an anonymous function taking the id in parameter
 the ${variableName} operator allows me to "paste" its value inside the string. Its sexy and the ${} operator can also execute code !! Neat if you want to write an array of ids or even more complex things !
 
 *index.js*
@@ -675,7 +675,7 @@ $(document).ready(() => {
     $(".container").css("height", $(window).height());
 });
 ```
-I do three, things, the two last ones are cosmetics so I won't get deep into it, even if I will explain easyFadeAnimation later
+I do three things, the two last ones are cosmetics so I won't get deep into it, even if I will explain easyFadeAnimation later
 . If there are parts you don't understand here It will be good that you check those links:
 
 - The $ selector and how to get DOM elements (div, span, nav etc...): https://www.w3schools.com/jquery/jquery_ref_selectors.asp
@@ -691,10 +691,10 @@ const getHomepage = () => callNetflixBackend(homepageQuery)
     .done((reponseData) => renderHomepage(reponseData));
 ```
 
-You sawed the ``callNetflixBackend(targetQuery)`` here is a concrete application, it returns an AJAX object and behaves so.
+You saw the ``callNetflixBackend(targetQuery)`` here is a concrete application, it returns an AJAX object and behaves so.
 
-Here I attach anorther anonymous function (beware, you will see lots of them :) ) call done, done will get as parameter
-the data from the server, having the JSON response I can then pass it to ``renderHomepage(responseData)`` who will use it to render the homepage.
+Here I attach another anonymous function (beware, you will see lots of them :) ) call done, done will get as parameter
+the data from the server, having the JSON response I can then pass it to ``renderHomepage(responseData)`` which will use it to render the homepage.
 
 So lets see ``renderHomepage()``
 ```
@@ -704,7 +704,7 @@ const renderHomepage = (data) => {
 };
 ```
 
-There it just call two different functions, each of them takes a part of the data, it allows us a nice decoupling of the rendering and we can also extend
+There it just calls two different functions, each of them takes a part of the data, it allows us a nice decoupling of the rendering and we can also extend
 this for maximum reusability !
 
 Anyway, I am too turnt up, so lets just open ```renderHomepage()```
@@ -731,7 +731,7 @@ const renderTopPageMovie = (dataForMovie) => {
 Aside from the animations part this is where the data gotten from the server is persisted to the HTML, it is a classical render scheme
 for JQuery apps and is OK for simple content load but will get messy if you have to render it many times after one data fetch.
 
-I invite you to search in JQuery documentation to see how the functions I use behave and seek orther functions to use.
+I invite you to search in JQuery documentation to see how the functions I use behave and seek other functions to use.
 
 *If you have spotted `makeYoutubeLink()` is what I call a template, its some lines below*
 
@@ -796,10 +796,10 @@ const buildStrateTemplate = (strateKey, title, poster, movies) => `
 Again it is building the divs containing the data but instead of letting JQuery handle the replacing of the content
 one by one it is directly putting it while rendering the template.
 
-Of course it is more efficient because there is a lot of movies to render but also your code might be very very messy. Of course there are orther ways to get a clean
+Of course it is more efficient because there is a lot of movies to render but also your code might be very very messy. Of course there are other ways to get a clean
 result but I just wanted to share one way :)
 
-And finally, in the ed we have the `buildStrateMovie()`, also a template builder
+And finally, in the end we have the `buildStrateMovie()`, also a template builder
 ````
 const buildStrateMovie = (movieData, strateKey) => `
 <div class="strate-movie-container">
@@ -813,7 +813,7 @@ const buildStrateMovie = (movieData, strateKey) => `
 `;
 ````
 
-Yet agains it renders one movie poster with title, cutting the title if it risks to overflow the div size.
+Yet again it renders one movie poster with title, cutting the title if it risks to overflow the div size.
 
 ## ReactJS Reference: Architecture and code explanations
 
