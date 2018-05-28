@@ -2,7 +2,7 @@
 
 *version 0.8*
 
-![alt text](http://cdn.deadlykungfu.ninja/ref.png)
+![alt text](http://cdn.deadlykungfu.ninja/swirl/ref.png)
 
 Latest online version : http://cdn.deadlykungfu.ninja/demo/jquery/
 
@@ -548,7 +548,7 @@ To launch the client in your browser simply open index.html, it should work nice
 **By easy I mean easier than other techs, of course you may run into hard problems, don't hesitate to post on the slack or join the Discord*
 
 #### File tree
-[here IMG]
+![alt text](http://cdn.deadlykungfu.ninja/swirl/sourceTree.png)
 
 **Root directory**
 
