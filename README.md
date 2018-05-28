@@ -1,8 +1,8 @@
 # An introduction to GraphQL
 
-*version 0.8*
+*version 0.9*
 
-![alt text](http://cdn.deadlykungfu.ninja/swirl/ref.png)
+![alt text](http://cdn.deadlykungfu.ninja/swirl/refv0-9.png)
 
 Latest online version : http://cdn.deadlykungfu.ninja/demo/jquery/
 
