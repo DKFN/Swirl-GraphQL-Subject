@@ -520,7 +520,7 @@ type Comment {
   id: Int!
   date: String!
   login: String!
-  avatar: String
+  avatar: String!
   text: String!
 }
 
@@ -528,14 +528,36 @@ type Comment {
 type Movie {
   id: Int!
   title: String!
-  poster: String
-  backdrop: String
+  poster: String!
+  backdrop: String!
   releaseDate: String!
   director: String!
   synopsis: String!
-  trailerYoutubeId: String
-  comments: [Comment]! // Array can be empty but never null
+  trailerYoutubeId: String!
+  comments: [Comment!]!
 }
+
+type Query {
+  # Returns a movie with given Id
+  movie(id: Int!): Movie
+
+  # Returns a list of movies with given Ids
+  movies(id: [Int!]!): [Movie!]!
+
+  # Returns lists of movies with given themes.
+  strate(name: String!): Strate!
+
+  # Returns lists of movies with given themes.
+  strates(names: [String!]!): [Strate!]!
+}
+
+# A strate used to display a list of movies
+type Strate {
+  name: String!
+  title: String!
+  movies: [Movie!]!
+}
+
 ```
 
 ## JQuery Reference : Architecture and code explanations
