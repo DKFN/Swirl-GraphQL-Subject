@@ -1,24 +1,13 @@
 const renderHomepage = (data) => {
-    console.log(data);
     renderTopPageMovie(data["data"]["movie"]);
     renderAllStrate(data["data"]["strates"]);
 };
 
 // Here I just persist all my data to the HTML
 const renderTopPageMovie = (dataForMovie) => {
-    console.log(dataForMovie);
-
     // Animations
-    $(".flagship-movie-content").css("opacity", 0);
-    $(".flagship-movie-poster").css("opacity", 0);
-
-    $(".flagship-movie-content").delay(1500).animate({
-        opacity: 1,
-    }, 1000);
-
-    $(".flagship-movie-poster").delay(200).animate({
-        opacity: 1,
-    }, 1000);
+    easyFadeAnimation($(".flagship-movie-content"), 1500, 1000);
+    easyFadeAnimation($(".flagship-movie-poster"), 200, 1000);
 
     // Now I set the content I want based on data I received
     $(".flagship-movie-title").text(dataForMovie["title"]);
@@ -32,19 +21,11 @@ const renderTopPageMovie = (dataForMovie) => {
 };
 
 const renderAStrate = (dataForMyStrate, strateKey) => {
+    const allStratesContainer = $(".home-strates-container");
+    easyFadeAnimation(allStratesContainer, 1500, 800);
+    easyFadeAnimation($(".strate-poster"), 2200, 500);
 
-    $(".home-strates-container").css("opacity", 0);
-    $(".strate-poster").css("opacity", 0);
-
-    $(".home-strates-container").delay(1500).animate({
-        opacity: 1,
-    }, 800);
-
-    $(".strate-poster").delay(2200).animate({
-        opacity: 1,
-    }, 500);
-
-    $(".home-strates-container")
+    allStratesContainer
         .append(
             buildStrateTemplate(
                 strateKey,
@@ -75,5 +56,6 @@ const getHomepage = () => callNetflixBackend(homepageQuery)
 // This is the "Main" of my webpage, it will be executed after the browser has loaded the "display" elements
 $(document).ready(() => {
     getHomepage();
+    easyFadeAnimation($(".navbar .navbar-header"), 300, 250);
     $(".container").css("height", $(window).height());
 });

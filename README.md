@@ -19,17 +19,14 @@ You can start the project now, the subject will not longer have braking changes 
     - How to query the server ?
     - What can I query ? (Schema in details)
     - A note about using variables, simply
-    - Error handling
+    - TODO : Error handling
     - Schema in details
     - Going further
         - Using dev tools and postman to debug
-        - Bonus : Build your own strates !
-        - Bonus : Implement search !
-        - Variables substitution
-        - Pagination
-        - Getting Schema definition via a query
- - Simple frontend boilerplate
-    - Code explanations
+        - TODO Bonus : Build your own strates !
+        - TODO Bonus : Implement search !
+- JQuery Reference: Architecture and Code exmplanations
+- ReactJS Reference: Architecture and Code exmplanations
 
 ## Terminologies
  
@@ -540,3 +537,284 @@ type Movie {
   comments: [Comment]! // Array can be empty but never null
 }
 ```
+
+## JQuery Reference : Architecture and code explanations
+
+The frontend version aims to provide you basic functionnalites to get started quick and is a great option if you want
+to try the frontend part easily* before having dedicated subjects on frontend frameworks.
+
+To launch the client in your browser simply open index.html, it should work nice. If not, please send me a message.
+
+**By easy I mean easier than other techs, of course you may run into hard problems, don't hesitate to post on the slack or join the Discord*
+
+#### File tree
+[here IMG]
+
+**Root directory**
+
+*app.css*
+Contains the basic style of the application. Nothing very crazy here :)
+
+*index.html* Is the skeleton of the app, let me insist with the word of skeleton watch this code, it is resposible for
+containing Deadpool 2 in the reference :
+
+```html$
+<!-- Flagship movie !-->
+<div class="panel panel-default flagship-movie-container">
+    <div class="panel-body" id="flagship-movie-content">
+        <div class="col-md-4">
+            <div class="flagship-movie-poster">
+            </div>
+        </div>
+        <div class="flagship-movie-content col-md-8">
+            <div class="flagship-movie-infos">
+                <span class="flagship-movie-title"></span> <br />
+                <span class="flagship-movie-director"></span>
+                <span class="flagship-movie-releaseDate"></span> <br /><br />
+            </div>
+            <div class="flagship-movie-synopsis">
+            </div>
+            <div class="flagship-movie-youtube" style="text-align: center; position: relative;">
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+As you can see it is an empty shell ! There is not a single text, only a lot of classnames with revelant names on what will be filled after load! You will see on the JS folder
+explanation part howit is filled with informations from the backend
+
+Anorther part to keep in memory for now is this simple empty div, we wil get back to it later:
+
+```$xslt
+<div class="home-strates-container">
+
+</div>
+```
+
+**Javascript directory**
+
+*client.js* is a wrapper I made to ease you the process of sending queries to the server, it takes you query as a parameter
+and will return you a function. You will see below how to use it
+
+```$javascript
+const callNetflixBackend = (targetQuery) 
+```
+
+*queries.js*
+
+It contains all the queries of the applications, for now there is only the homepage query:
+```$xslt
+var homepageQuery = `
+query {
+	strates (names: ["soon", "anime", "drames", "thrillers", "noirblanc", "sciencefiction", "horreur", "fantastique"]) {
+		name
+		title
+		movies {
+			id
+			title
+			poster
+		}
+	}
+	movie (id: 31798) {
+		id
+		title
+		synopsis
+		backdrop
+		poster
+		director
+		releaseDate
+		trailerYoutubeId
+	}
+}`;
+```
+
+As you see, it is using backquotes, let me introduce you right now a simple way to template and add variables to your string such
+as your GraphQL queries but also to your templates (see below, again ^^).
+
+I could set the id dynamically if I want to often change my flagship movie for example
+```$xslt
+var homepageQuery = (myId) => `
+query {
+	strates (names: ["soon", "anime", "drames", "thrillers", "noirblanc", "sciencefiction", "horreur", "fantastique"]) {
+		name
+		title
+		movies {
+			id
+			title
+			poster
+		}
+	}
+	movie (id: ${myId}) {
+		id
+		title
+		synopsis
+		backdrop
+		poster
+		director
+		releaseDate
+		trailerYoutubeId
+	}
+}`;
+```
+
+And ... that's it. Backquotes are very powerfull in JS and I just wrap my query in an anonymous functions taking the id in parameter
+the ${variableName} operator allows me to "paste" its value inside the string. Its sexy and the ${} operator can also execute code !! Neat if you want to write an array of ids or even more complex things !
+
+*index.js*
+
+So this is the big part !
+
+First lets see the main :
+
+```$xslt
+// This is the "Main" of my webpage, it will be executed after the browser has loaded the "display" elements
+$(document).ready(() => {
+    getHomepage();
+    easyFadeAnimation($(".navbar .navbar-header"), 300, 250);
+    $(".container").css("height", $(window).height());
+});
+```
+I do three, things, the two last ones are cosmetics so I won't get deep into it, even if I will explain easyFadeAnimation later
+. If there are parts you don't understand here It will be good that you check those links:
+
+- The $ selector and how to get DOM elements (div, span, nav etc...): https://www.w3schools.com/jquery/jquery_ref_selectors.asp
+- .ready function : http://learn.jquery.com/using-jquery-core/document-ready/
+- .css function : http://api.jquery.com/css/
+
+So next is ``getHomepage()`` so let's scroll up and see what it do:
+
+```$xslt
+// As you can see there I create a getHomepage function, taking the homepageQuery and when I have a reponse from the back
+// I attach an anonymous function, that will be executed when query is complete and it will call renderHomepage with the data
+const getHomepage = () => callNetflixBackend(homepageQuery)
+    .done((reponseData) => renderHomepage(reponseData));
+```
+
+You sawed the ``callNetflixBackend(targetQuery)`` here is a concrete application, it returns an AJAX object and behaves so.
+
+Here I attach anorther anonymous function (beware, you will see lots of them :) ) call done, done will get as parameter
+the data from the server, having the JSON response I can then pass it to ``renderHomepage(responseData)`` who will use it to render the homepage.
+
+So lets see ``renderHomepage()``
+```
+const renderHomepage = (data) => {
+    renderTopPageMovie(data["data"]["movie"]);
+    renderAllStrate(data["data"]["strates"]);
+};
+```
+
+There it just call two different functions, each of them takes a part of the data, it allows us a nice decoupling of the rendering and we can also extend
+this for maximum reusability !
+
+Anyway, I am too turnt up, so lets just open ```renderHomepage()```
+
+```$xslt
+// Here I just persist all my data to the HTML
+const renderTopPageMovie = (dataForMovie) => {
+    // Animations
+    easyFadeAnimation($(".flagship-movie-content"), 1500, 1000);
+    easyFadeAnimation($(".flagship-movie-poster"), 200, 1000);
+
+    // Now I set the content I want based on data I received
+    $(".flagship-movie-title").text(dataForMovie["title"]);
+    $(".flagship-movie-director").text(dataForMovie["director"]);
+    $(".flagship-movie-synopsis").text(dataForMovie["synopsis"]);
+    $(".flagship-movie-releaseDate").text(dataForMovie["releaseDate"]);
+
+    $(".flagship-movie-poster").append(`<img width="250px" style="float: left" src="${dataForMovie["poster"]}" />`);
+    $(".flagship-movie-container").css('background-image', 'url("'+dataForMovie["backdrop"]+'")');
+    $(".flagship-movie-youtube").append(makeYoutubeLink(dataForMovie["trailerYoutubeId"]));
+};
+```
+
+Aside from the animations part this is where the data gotten from the server is persisted to the HTML, it is a classical render scheme
+for JQuery apps and is OK for simple content load but will get messy if you have to render it many times after one data fetch.
+
+I invite you to search in JQuery documentation to see how the functions I use behave and seek orther functions to use.
+
+*If you have spotted `makeYoutubeLink()` is what I call a template, its some lines below*
+
+So let's go to the next function, `renderAllStrate()` :
+
+```$xslt
+const renderAllStrate = (dataForAllStrates) => {
+    /*
+     * This is equivalent to this :
+     *
+     * for (int i = 0; i < dataForAllStrates.length; ++i) {
+     *      renderAStrate(dataForAllStrates[i]);
+     * }
+     *
+     * But let's enjoy that we are not in C and we have nicer concepts :D
+     */
+    dataForAllStrates.map((strateData, key) => renderAStrate(strateData, key))
+};
+```
+If have an Array of Strate Objects (see schema) so I want to get through all of them and call of function that will handle
+
+Lets move to `renderAStrate()` !
+
+```$xslt
+const renderAStrate = (dataForMyStrate, strateKey) => {
+    const allStratesContainer = $(".home-strates-container");
+    easyFadeAnimation(allStratesContainer, 1500, 800);
+    easyFadeAnimation($(".strate-poster"), 2200, 500);
+
+    allStratesContainer
+        .append(
+            buildStrateTemplate(
+                strateKey,
+                dataForMyStrate["title"],
+                dataForMyStrate["poster"],
+                dataForMyStrate["movies"]
+        ));
+};
+```
+
+Remember the empty div in index.html ? Here is where it gets filled when data is received !
+
+As you can see, aside from animations, I add (append) something return from `buildStrateTemplate(...)`,
+exactly like for the GraphQL query, it is taking parameters to render a string (here a full html dom tree contaning divs, text and images)
+
+So let's open ...
+
+#### Templates
+Straightforward, as you are familliar with templates lets open ``buildStrateTemplate(...)``
+
+```$xslt
+const buildStrateTemplate = (strateKey, title, poster, movies) => `
+    <div class="strate-container">
+        <div class="strate-title">
+            ${title}
+        </div>
+        ${ movies.map(x => buildStrateMovie(x, strateKey)) }
+    </div><br />
+`;
+```
+
+Again it is building the divs containing the data but instead of letting JQuery handle the replacing of the content
+one by one it is directly putting it while rendering the template.
+
+Of course it is more efficient because there is a lot of movies to render but also your code might be very very messy. Of course there are orther ways to get a clean
+result but I just wanted to share one way :)
+
+And finally, in the ed we have the `buildStrateMovie()`, also a template builder
+````
+const buildStrateMovie = (movieData, strateKey) => `
+<div class="strate-movie-container">
+    <div class="strate-poster">
+        <img width="256px" src="${ movieData["poster"] }"/>
+    </div>
+    <div class="strate-movie-title">
+        ${ movieData["title"].length > 20 ? movieData["title"].substring(0, 19) + "..." : movieData["title"] }
+    </div>
+</div>
+`;
+````
+
+Yet agains it renders one movie poster with title, cutting the title if it risks to overflow the div size.
+
+## ReactJS Reference: Architecture and code explanations
+
+TODO
