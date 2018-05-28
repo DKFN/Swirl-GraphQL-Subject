@@ -72,9 +72,9 @@ as such I won't enter technical details of its implementation here but feel free
 
 #### How to query the server ?
 
-The server base URL is : *http://45.76.45.208:9000/*
+The server base URL is : *http://swirl-netflix.deadlykungfu.ninja/*
 
-You will need to do POST queries to this route : *http://45.76.45.208:9000/graphql*
+You will need to do POST queries to this route : *http://swirl-netflix.deadlykungfu.ninja/graphql*
 
 *Before writing code I suggest you to try to query the server with Postman (or curl, but even if I love CLI,
 writing graphQL queries seems painfull there). There are few words about using it later in this document if you need/*

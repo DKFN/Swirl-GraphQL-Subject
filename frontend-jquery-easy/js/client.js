@@ -5,7 +5,7 @@ const callNetflixBackend = (targetQuery) => {
     }
 
     return $.ajax({
-        url: "http://45.76.45.208:9000/graphql",
+        url: "http://swirl-netflix.deadlykungfu.ninja/graphql",
         method: "POST",
         dataType: "json",
         contentType: "text/plain; charset=utf-8",
