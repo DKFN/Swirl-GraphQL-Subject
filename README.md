@@ -2,9 +2,13 @@
 
 *version 0.9*
 
+**JQuery demo**
 ![alt text](http://cdn.deadlykungfu.ninja/swirl/refv0-9.png)
-
 Latest online version : http://cdn.deadlykungfu.ninja/demo/jquery/
+
+**ReactJS demo**
+![alt text](http://cdn.deadlykungfu.ninja/swirl/reactref.png)
+Latest online version : http://cdn.deadlykungfu.ninja/demo/react/
 
 **Early version note:**
 
