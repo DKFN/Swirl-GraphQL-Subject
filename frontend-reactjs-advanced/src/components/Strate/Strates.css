@@ -1,0 +1,41 @@
+
+.strate-title {
+    font-size: 42px;
+    color: white;
+    transition-delay: 50ms;
+    transition-duration: 500ms;
+}
+
+.home-strates-container {
+    background-color: black;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+.strate-container {
+    display: block;
+    width: 100%;
+}
+
+.strate-movie-container {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    transition-delay: 50ms;
+    transition-duration: 500ms;
+    height: 450px;
+}
+
+.strate-movie-container:hover {
+    background-color: white;
+    color: black;
+}
+
+.strate-movie-title {
+    max-width: 256px;
+    word-break: break-all;
+    font-size: 22px;
+    transition-delay: 50ms;
+    transition-duration: 500ms;
+}

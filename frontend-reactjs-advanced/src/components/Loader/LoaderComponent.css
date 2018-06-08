@@ -1,0 +1,13 @@
+.loader-container {
+    text-align: center;
+    background-color: black;
+}
+
+.loader-container h1 {
+    color: white;
+    font-size: 32px;
+}
+
+.loader-container img {
+    border-radius: 40px;
+}

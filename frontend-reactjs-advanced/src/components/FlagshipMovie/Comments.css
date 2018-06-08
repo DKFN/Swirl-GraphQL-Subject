@@ -1,0 +1,34 @@
+.flagship-comments-container {
+    position: absolute;
+    top: 100px;
+    right: 10px;
+    border-radius: 25px;
+    opacity: 0.5;
+    font-weight: bolder;
+    transition-duration: 500ms;
+    transition-delay: 100ms;
+}
+
+.flagship-comments-container:hover {
+    opacity: 0.9;
+    height: 200px;
+}
+
+.flagship-comment-container {
+    height: 140px;
+}
+
+
+.flagship-comment-container:hover {
+    height: 240px;
+}
+
+.flagship-comment-text {
+    font-size: 16px;
+    padding: 10px;
+}
+
+.flagship-comment-login {
+    text-align: right;
+    padding-right: 30px;
+}

@@ -1,0 +1,92 @@
+.body {
+    font-family: 'Roboto', sans-serif;
+    background-color: black;
+}
+
+html {
+    background-color: black;
+}
+
+.wrapper {
+    background-color: black;
+}
+
+.flagship-movie-container {
+    color: white;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.flagship-movie-content {
+    margin-left: 270px;
+    color: white;
+}
+
+.flagship-movie-title {
+    font-size: 48px;
+    background-color: black;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.flagship-movie-director {
+    font-size: 18px;
+    font-style: italic;
+    margin-right: 20px;
+}
+
+
+.flagship-movie-youtube:hover {
+    opacity: 1%;
+}
+
+.flagship-movie-synopsis {
+    background-color: black;
+    padding: 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    max-width: 1080px;
+}
+
+.strate-title {
+    font-size: 42px;
+    color: white;
+}
+
+.home-strates-container {
+    background-color: black;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+.strate-container {
+    display: block;
+    width: 100%;
+}
+
+.strate-movie-container {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    transition-delay: 50ms;
+    transition-duration: 500ms;
+    height: 450px;
+}
+
+.strate-movie-container:hover {
+    background-color: white;
+    color: black;
+}
+
+.strate-movie-title {
+    max-width: 256px;
+    word-break: break-all;
+    font-size: 22px;
+}
+
+.navbar {
+    color: white;
+    background-color: black;
+}
+
