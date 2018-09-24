@@ -1,6 +1,6 @@
 # An introduction to GraphQL
 
-*version 0.9*
+*version 0.9* ![Build](http://ops-factory.tetel.in/app/rest/builds/buildType:%28id:SwirlGraphqlBack_Build%29/statusIcon.png)
 
 **JQuery demo**
 ![alt text](http://cdn.deadlykungfu.ninja/swirl/refv0-9.png)
