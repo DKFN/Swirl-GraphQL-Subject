@@ -2,6 +2,8 @@
 
 ![Build](http://ops-factory.tetel.in/app/rest/builds/buildType:%28id:SwirlGraphqlBack_Build%29/statusIcon.png) *version 0.9* 
 
+## The backend server is now offline due to costs, please let me know if you want me to reboot it
+
 **JQuery demo**
 ![alt text](http://cdn.deadlykungfu.ninja/swirl/refv0-9.png)
 Latest online version : http://cdn.deadlykungfu.ninja/demo/jquery/
